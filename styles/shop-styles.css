@@ -1,0 +1,120 @@
+/*------------------------ Common Styles ------------------------*/
+* {
+  margin: 0;
+  padding: 0;
+  outline: none;
+}
+
+html {
+  /* 10px / 16px(default font) = 0.625 */
+  font-size: 62.5%;
+}
+
+/*------------------------ Shop page ------------------------*/
+.shop-page {
+  width: 100%;
+  display: grid;
+  grid-template-areas:
+    "nav-left nav-mid nav-right"
+    "content-left content-mid content-right"
+    "footer-left footer-mid footer-right";
+  grid-template-rows: 1fr 5fr 1fr;
+  grid-template-columns: 1fr 3.5fr 1fr;
+  font-family: "Open Sans Condensed", sans-serif;
+}
+
+.shop-title {
+  font-size: 1.5rem;
+  letter-spacing: 0.3rem;
+  margin-bottom: 2rem;
+}
+/*------------------------ End of Shop page ------------------------*/
+
+/*------------------------ Shop Content ------------------------*/
+.shop-content {
+  grid-area: content-mid;
+  width: 100%;
+  /* display: flex; */
+  flex-direction: column;
+  position: relative;
+  top: -4%;
+  overflow-y: scroll;
+}
+/*------------------------ End of Shop content------------------------*/
+
+/*------------------------ Products Content  ------------------------*/
+.products {
+  position: relative;
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(26rem, auto));
+  column-gap: 2rem;
+  row-gap: 2rem;
+}
+
+.img-container {
+  position: relative;
+}
+
+.product {
+  display: block;
+  cursor: pointer;
+}
+
+.product-img {
+  width: 100%;
+  min-height: 12rem;
+  background-color: rgb(1, 1, 1, 0.025);
+  border-radius: 1rem;
+}
+
+.product-img:hover{
+  background-color: rgb(144, 151, 171, 0.15);
+  transition: 0.7s;
+}
+
+.product-name {
+  position: relative;
+  left: 3%;
+  font-size: 1.5rem;
+  letter-spacing: 0.2rem;
+}
+
+.product-price {
+  position: relative;
+  float: right;
+  right: 3%;
+  font-size: 1.5rem;
+  text-transform: uppercase;
+  letter-spacing: 0.15rem;
+}
+/*------------------------ End of Products content ------------------------*/
+
+/*------------------------ Footer ------------------------*/
+.shop-footer {
+  grid-area: footer-mid;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  font-family: "Piazzolla", sans-serif;
+}
+
+.shop-footer ul {
+  display: flex;
+  list-style-type: none;
+}
+
+.shop-footer li {
+  padding: 2rem;
+  font-size: 1.3rem;
+  text-transform: uppercase;
+}
+
+.shop-footer a {
+  text-decoration: none;
+  color: #000;
+  font-size: 300;
+}
+/*------------------------ End of Footer ------------------------*/
+
+/*------------------------ Media Query ------------------------*/

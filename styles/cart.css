@@ -1,0 +1,150 @@
+/*------------------------ Cart ------------------------*/
+.cart-overlay {
+  grid-area: content-right;
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 100%;
+  height: 100vh;
+  background-color: rgb(144, 151, 171, 0.7);
+  /* visibility: hidden; */
+  z-index: 1;
+}
+
+.cart {
+  position: fixed;
+  padding: 1.5rem;
+  min-width: 3.8rem;
+  height: 100vh;
+  top: 0;
+  right: 0;
+  background: #fff;
+  /* transition: 0.5; */
+  overflow-y: scroll;
+  overflow-x: hidden;
+}
+
+.showCart {
+  transform: translateX(0%);
+}
+
+.transparentBcg {
+  visibility: visible;
+}
+
+.close-cart {
+  position: absolute;
+  right: 5%;
+  font-size: 1.3rem;
+  cursor: pointer;
+  text-transform: uppercase;
+}
+
+.cart-title {
+  font-size: 2rem;
+  text-transform: uppercase;
+  text-align: start;
+  letter-spacing: 0.1rem;
+  margin: 2rem 0;
+}
+
+.cart-content {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  background: #fff;
+  border-top: 1px solid black;
+}
+
+/*------------------------ Cart Item ------------------------*/
+.cart-item {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 1.5rem 0;
+  background-color: rgb(1, 1, 1, 0.055);
+  cursor: pointer;
+}
+
+.cart-item img {
+  width: 25rem;
+  height: 25rem;
+}
+
+.cart-item-name {
+  font-size: 1.3rem;
+  text-transform: uppercase;
+  letter-spacing: 0.3rem;
+}
+
+.cart-item-price {
+  font-size: 1.3rem;
+  margin: 0.5rem 0;
+  letter-spacing: 0.3rem;
+}
+
+.remove-item {
+  color: black;
+  cursor: pointer;
+  letter-spacing: 0.1rem;
+}
+
+.cart-quantity {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.fa-plus,
+.fa-minus {
+  margin: 2rem 2rem;
+  cursor: pointer;
+}
+
+.item-quantity {
+  text-align: center;
+}
+/*------------------------ End of Cart Item ------------------------*/
+.cart-footer {
+  display: flex;
+  height: 18rem;
+  flex-direction: column;
+  letter-spacing: 0.3rem;
+  border-top: 1px solid black;
+}
+
+.cart-footer h3 {
+  margin: 2rem 1rem;
+  font-size: 1.5rem;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.cart-footer p {
+  text-align: center;
+}
+
+.cart-total {
+  font-size: 1.5rem;
+  float: right;
+  margin-right: 1rem;
+}
+
+.banner-btn {
+  height: 5rem;
+  margin: 1rem;
+  color: #fff;
+  background-color: #000;
+  text-transform: uppercase;
+  border-style: none;
+  border-radius: 0.5rem;
+  letter-spacing: 0.3rem;
+}
+
+.banner-btn:hover {
+  background-color: rgb(144, 151, 171, 0.7);
+  transition: 0.7s;
+}
+
+/*------------------------ End Of Cart Item ------------------------*/
+
