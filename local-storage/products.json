@@ -1,0 +1,52 @@
+{
+  "items": [
+    {
+      "id": "1",
+      "name": "kindred. tee / black",
+      "properties": {
+        "price": 45.0,
+        "imageURL": "../images/shop/black-tee.png"
+      }
+    },
+    {
+      "id": "2",
+      "name": "kindred. tee / white",
+      "properties": {
+        "price": 45.0,
+        "imageURL": "../images/shop/white-tee.png"
+      }
+    },
+    {
+      "id": "3",
+      "name": "kindred. tee / dark blue",
+      "properties": {
+        "price": 45.0,
+        "imageURL": "../images/shop/darkblue-tee.png"
+      }
+    },
+    {
+      "id": "4",
+      "name": "kindred. tee / black",
+      "properties": {
+        "price": 45.0,
+        "imageURL": "../images/shop/black-tee.png"
+      }
+    },
+    {
+      "id": "5",
+      "name": "kindred. tee / white",
+      "properties": {
+        "price": 45.0,
+        "imageURL": "../images/shop/white-tee.png"
+      }
+    },
+    {
+      "id": "6",
+      "name": "kindred. tee / dark blue",
+      "properties": {
+        "price": 45.0,
+        "imageURL": "../images/shop/darkblue-tee.png"
+      }
+    }
+  ]
+}
