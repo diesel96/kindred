@@ -26,26 +26,50 @@
     },
     {
       "id": "4",
-      "name": "kindred. tee / black",
+      "name": "kindred. hoodie / black",
       "properties": {
-        "price": 45.0,
-        "imageURL": "../images/shop/black-tee.png"
+        "price": 65.0,
+        "imageURL": "../images/shop/hoodie-black.png"
       }
     },
     {
       "id": "5",
-      "name": "kindred. tee / white",
+      "name": "kindred. hoodie / white",
       "properties": {
-        "price": 45.0,
-        "imageURL": "../images/shop/white-tee.png"
+        "price": 65.0,
+        "imageURL": "../images/shop/hoodie-white.png"
       }
     },
     {
       "id": "6",
-      "name": "kindred. tee / dark blue",
+      "name": "kindred. hoodie / cream",
       "properties": {
-        "price": 45.0,
-        "imageURL": "../images/shop/darkblue-tee.png"
+        "price": 65.0,
+        "imageURL": "../images/shop/hoodie-cream.png"
+      }
+    },
+    {
+      "id": "7",
+      "name": "kindred. sweats / black",
+      "properties": {
+        "price": 55.0,
+        "imageURL": "../images/shop/sweats-black.png"
+      }
+    },
+    {
+      "id": "8",
+      "name": "kindred. sweats / cream",
+      "properties": {
+        "price": 55.0,
+        "imageURL": "../images/shop/sweats-cream.png"
+      }
+    },
+    {
+      "id": "9",
+      "name": "kindred. sweats / grey",
+      "properties": {
+        "price": 55.0,
+        "imageURL": "../images/shop/sweats-grey.png"
       }
     }
   ]

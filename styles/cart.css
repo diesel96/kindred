@@ -20,8 +20,8 @@
   background: #fff;
   overflow-y: scroll;
   overflow-x: hidden;
-transition: 0.5;
-    transform: translateX(100%);
+  transition: 0.7s;
+  transform: translateX(100%);
 }
 
 .showCart {
@@ -70,6 +70,7 @@ transition: 0.5;
 .cart-item img {
   width: 25rem;
   height: 25rem;
+  object-fit: cover;
 }
 
 .cart-item-name {

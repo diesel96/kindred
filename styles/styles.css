@@ -20,7 +20,7 @@ html {
     "nav-left nav-mid nav-right"
     "content-left content-mid content-right"
     "footer-left footer-mid footer-right";
-  grid-template-rows: 1fr 3fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr;
   grid-template-columns: 1fr 3fr 1fr;
 }
 

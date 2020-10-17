@@ -2,6 +2,7 @@
 
 // Variables
 const cartNavBtn = document.querySelector(".cart-nav");
+const cartNavName = document.querySelector(".cart-nav-info");
 const closeCartBtn = document.querySelector(".close-cart");
 const cartItem = document.querySelector(".cart-item");
 const cartItems = document.querySelector(".cart-items");
@@ -95,7 +96,7 @@ class UI {
         // Save the Cart to Local Storage
         Storage.saveCart(cart);
         // Set Cart values
-        this.setCartValues(cart);
+        this.setCartTotalValues(cart);
         // Display Cart item
         this.addCartItem(cartItem);
         // Show the Cart
@@ -104,13 +105,11 @@ class UI {
     });
   }
 
-  setCartValues(cart) {
+  setCartTotalValues(cart) {
     let tempTotal = 0;
-    let itemsTotal = 0;
 
     cart.map((item) => {
       tempTotal += item.price * item.amount;
-      itemsTotal += item.amount;
     });
 
     cartTotal.innerText = "$" + parseFloat(tempTotal.toFixed(2));
@@ -138,9 +137,105 @@ class UI {
     cartContent.appendChild(div);
   }
 
-  showCart(){
-      cartOverlay.classList.add('transparentBcg');
-      cartDOM.classList.add('showCart');
+  showCart() {
+    cartOverlay.classList.add("transparentBcg");
+    cartDOM.classList.add("showCart");
+  }
+
+  hideCart() {
+    cartOverlay.classList.remove("transparentBcg");
+    cartDOM.classList.remove("showCart");
+  }
+
+  setupAPP() {
+    cart = Storage.getCart();
+    this.setCartTotalValues(cart);
+    this.populateCart(cart);
+
+    cartNavBtn.addEventListener("click", this.showCart);
+    cartNavName.addEventListener("click", this.showCart);
+    closeCartBtn.addEventListener("click", this.hideCart);
+  }
+
+  populateCart(cart) {
+    cart.forEach((item) => this.addCartItem(item));
+  }
+
+  cartEvents() {
+    // Clearing the cart instead of checking out.
+    checkOutBtn.addEventListener("click", () => {
+      this.clearCart();
+    });
+
+    // Singular Cart Item functionality
+    cartContent.addEventListener("click", (event) => {
+      // User removes Cart Item from Cart.
+      if (event.target.classList.contains("remove-item")) {
+        let removeItem = event.target;
+        let id = removeItem.dataset.id;
+
+        cartContent.removeChild(removeItem.parentElement.parentElement);
+        // Remove item.
+        this.removeItem(id);
+      }
+
+      // User adds to Cart Item quantity
+      if (event.target.classList.contains("fa-plus")) {
+        let plusAmount = event.target;
+        let id = plusAmount.dataset.id;
+        let tempItem = cart.find((item) => item.id === id);
+
+        tempItem.amount += 1;
+        plusAmount.previousElementSibling.innerText = tempItem.amount;
+
+        Storage.saveCart(cart);
+        this.setCartTotalValues(cart);
+      }
+
+      // User subtracts from Cart item quantity
+      if (event.target.classList.contains("fa-minus")) {
+        let minusAmount = event.target;
+        let id = minusAmount.dataset.id;
+        let tempItem = cart.find((item) => item.id === id);
+
+        tempItem.amount -= 1;
+
+        if (tempItem.amount > 0) {
+          minusAmount.nextElementSibling.innerText = tempItem.amount;
+          Storage.saveCart(cart);
+          this.setCartTotalValues(cart);
+        } else {
+          cartContent.removeChild(minusAmount.parentElement.parentElement);
+          this.removeItem(id);
+        }
+      }
+    });
+  }
+
+  clearCart() {
+    let cartItems = cart.map((item) => item.id);
+    cartItems.forEach((id) => this.removeItem(id));
+
+    while (cartContent.children.length > 0) {
+      cartContent.removeChild(cartContent.children[0]);
+    }
+
+    this.hideCart();
+  }
+
+  removeItem(id) {
+    cart = cart.filter((item) => item.id !== id);
+    // Get me the last values of the cart and save it
+    this.setCartTotalValues(cart);
+    Storage.saveCart(cart);
+
+    let button = this.getSingleButton(id);
+    button.disabled = false;
+    button.innerText = "Add to Cart";
+  }
+
+  getSingleButton(id) {
+    return buttonDOM.find((button) => button.dataset.id === id);
   }
 }
 
@@ -158,13 +253,21 @@ class Storage {
   static saveCart(cart) {
     localStorage.setItem("cart", JSON.stringify(cart));
   }
+
+  static getCart() {
+    return localStorage.getItem("cart")
+      ? JSON.parse(localStorage.getItem("cart"))
+      : [];
+  }
 }
 
 // Event Listeners
-
 document.addEventListener("DOMContentLoaded", () => {
   const ui = new UI();
   const products = new Products();
+
+  // Setup APP
+  ui.setupAPP();
 
   // Get all Products
   products
@@ -175,5 +278,6 @@ document.addEventListener("DOMContentLoaded", () => {
     })
     .then(() => {
       ui.getBagButtons();
+      ui.cartEvents();
     });
 });
