@@ -58,7 +58,6 @@
 /*------------------------ Cart Item ------------------------*/
 .cart-item {
   display: flex;
-  min-width: 3.5rem;
   justify-content: center;
   align-items: center;
   margin: 1.5rem 0;
@@ -149,3 +148,24 @@
 }
 
 /*------------------------ End Of Cart Item ------------------------*/
+
+/* Media Query */
+
+/* Portrait and Landscape */
+@media screen and (min-width: 375px) and (max-width: 899px) {
+  .cart{
+
+    /*
+      The reason why it's not working is because of the app.js 
+
+      - something about creating a div? 
+      - maybe it's because of the image? 
+      - content?
+      
+      Either way, you got this. 
+
+      Take a break, you deserver it.
+
+    */
+  }
+}

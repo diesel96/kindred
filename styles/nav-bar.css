@@ -26,7 +26,6 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  color: grey;
   /* border-bottom: 0.3rem double #000; */
 }
 
@@ -76,3 +75,17 @@
 }
 
 /*------------------------ End of Navigation Bar ------------------------*/
+
+
+/* Media Queries */
+
+/* Portrait and Landscape */
+@media only screen 
+  and (min-device-width: 375px) 
+  and (max-device-width: 667px) 
+  and (-webkit-min-device-pixel-ratio: 2) { 
+  
+    .nav-bar {
+      background-color: purple;
+    }
+}

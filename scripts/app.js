@@ -1,5 +1,3 @@
-// alert("Connected");
-
 // Variables
 const cartNavBtn = document.querySelector(".cart-nav");
 const cartNavName = document.querySelector(".cart-nav-info");
@@ -46,6 +44,16 @@ class Products {
 
 // Display Products
 class UI {
+  setupAPP() {
+    cart = Storage.getCart();
+    this.setCartTotalValues(cart);
+    this.populateCart(cart);
+
+    cartNavBtn.addEventListener("click", this.showCart);
+    cartNavName.addEventListener("click", this.showCart);
+    closeCartBtn.addEventListener("click", this.hideCart);
+  }
+
   displayProducts(products) {
     let result = "";
 
@@ -71,7 +79,7 @@ class UI {
     productDOM.innerHTML = result;
   }
 
-  getBagButtons() {
+  addToCart() {
     const bagButtons = [...document.querySelectorAll(".bag-btn")];
 
     buttonDOM = bagButtons;
@@ -98,7 +106,7 @@ class UI {
         // Set Cart values
         this.setCartTotalValues(cart);
         // Display Cart item
-        this.addCartItem(cartItem);
+        this.displayCartItem(cartItem);
         // Show the Cart
         this.showCart();
       });
@@ -116,7 +124,7 @@ class UI {
     // cartItems.innerText = itemsTotal;
   }
 
-  addCartItem(item) {
+  displayCartItem(item) {
     const div = document.createElement("div");
     div.classList.add("cart-item");
     div.innerHTML = `<img src=${item.image} alt="Product" />
@@ -147,21 +155,22 @@ class UI {
     cartDOM.classList.remove("showCart");
   }
 
-  setupAPP() {
-    cart = Storage.getCart();
-    this.setCartTotalValues(cart);
-    this.populateCart(cart);
-
-    cartNavBtn.addEventListener("click", this.showCart);
-    cartNavName.addEventListener("click", this.showCart);
-    closeCartBtn.addEventListener("click", this.hideCart);
-  }
-
   populateCart(cart) {
-    cart.forEach((item) => this.addCartItem(item));
+    cart.forEach((item) => this.displayCartItem(item));
   }
 
   cartEvents() {
+    // Hide cart when clicking outside of Cart
+    cartOverlay.addEventListener("click", (event) => {
+      var clickInside = cartDOM.contains(event.target);
+      var clickRemove = event.target.classList.contains("remove-item");
+      var qtyZero = event.target.classList.contains("fa-minus");
+
+      if (!clickInside && !clickRemove && !qtyZero) {
+        this.hideCart();
+      }
+    });
+
     // Clearing the cart instead of checking out.
     checkOutBtn.addEventListener("click", () => {
       this.clearCart();
@@ -277,7 +286,7 @@ document.addEventListener("DOMContentLoaded", () => {
       Storage.saveProducts(products);
     })
     .then(() => {
-      ui.getBagButtons();
+      ui.addToCart();
       ui.cartEvents();
     });
 });

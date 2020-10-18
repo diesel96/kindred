@@ -3,7 +3,7 @@
   grid-area: footer-mid;
   display: flex;
   justify-content: center;
-  align-items: flex-end;
+  align-items: center;
   font-family: "Piazzolla", sans-serif;
   margin-top: 2rem;
 }
@@ -25,3 +25,10 @@
   font-size: 300;
 }
 /*------------------------ End of Footer ------------------------*/
+
+/* Portrait and Landscape */
+@media screen and (min-width: 375px) and (max-width: 899px) {
+  .main-footer li{
+    font-size: 1.1rem;
+  }
+}

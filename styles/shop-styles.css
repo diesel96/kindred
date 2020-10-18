@@ -13,13 +13,13 @@ html {
 /*------------------------ Shop page ------------------------*/
 .shop-page {
   width: 100%;
-  height: 100vh;
+  height: 100%;
   display: grid;
   grid-template-areas:
-    ". content-mid ."
+    ". . ."
     "content-left content-mid content-right"
     ". footer-mid .";
-  grid-template-rows: 1fr 1fr 0.5fr;
+  grid-template-rows: 0 1fr 0.15fr;
   grid-template-columns: 0.5fr 1.5fr 0.5fr;
   font-family: "Open Sans Condensed", sans-serif;
 }
@@ -38,8 +38,7 @@ html {
   display: flex;
   flex-direction: column;
   position: relative;
-  overflow-y: scroll;
-  top: 13%;
+  top: 10%;
 }
 /*------------------------ End of Shop content------------------------*/
 
@@ -119,5 +118,11 @@ html {
 
 /*------------------------ End of Products content ------------------------*/
 
-
 /*------------------------ Media Query ------------------------*/
+
+/* Portrait and Landscape */
+@media screen and (min-width: 375px) and (max-width: 899px) {
+  .shop-content {
+    top: 4%;
+  }
+}
