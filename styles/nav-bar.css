@@ -63,29 +63,85 @@
   color: #000;
 }
 
-.cart-nav{
+.cart-nav {
   position: fixed;
   top: 4rem;
   right: 1.4rem;
   font-size: 1.4rem;
 }
 
-.cart-nav-info{
+.cart-nav-info {
   cursor: pointer;
+}
+
+.menu-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background-color: #000;
+  /* visibility: hidden; */
+  z-index: 1;
+}
+
+.menu {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  padding: 1.5rem;
+  transition: 0.7s;
+  /* transform: translateX(100%); */
+  color: #fff;
+}
+
+.menu-content {
+  position: absolute;
+  top: 40%;
+  left: 7%;
+}
+
+.menu-content a {
+  text-decoration: none;
+  color: #fff;
+  font-size: 4rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.3rem;
+}
+
+.close-menu {
+  position: absolute;
+  top: 4%;
+  right: 8%;
+  font-size: 1.3rem;
+  cursor: pointer;
+  text-transform: uppercase;
+}
+
+.menu-content a:hover,
+.close-menu:hover {
+  color: rgb(144, 151, 171, 0.85);
+  transition: 0.7s;
+}
+
+.showMenu {
+  transform: translateX(0%);
+}
+
+.hidden {
+  display: none;
 }
 
 /*------------------------ End of Navigation Bar ------------------------*/
 
-
 /* Media Queries */
 
 /* Portrait and Landscape */
-@media only screen 
-  and (min-device-width: 375px) 
-  and (max-device-width: 667px) 
-  and (-webkit-min-device-pixel-ratio: 2) { 
-  
-    .nav-bar {
-      background-color: purple;
-    }
+@media only screen and (min-device-width: 375px) and (max-device-width: 667px) and (-webkit-min-device-pixel-ratio: 2) {
+  .nav-bar {
+    background-color: purple;
+  }
 }

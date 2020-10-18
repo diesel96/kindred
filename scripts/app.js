@@ -1,4 +1,6 @@
 // Variables
+const menu = document.querySelector(".nav-menu");
+
 const cartNavBtn = document.querySelector(".cart-nav");
 const cartNavName = document.querySelector(".cart-nav-info");
 const closeCartBtn = document.querySelector(".close-cart");

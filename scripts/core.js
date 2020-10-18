@@ -1,49 +1,22 @@
+// Variables
 const navDOM = document.querySelector(".nav-bar");
-const navLeft = document.querySelector(".nav-left");
-const navRight = document.querySelector(".nav-right");
+const navMenu = document.querySelector(".nav-menu");
+const navSearch = document.querySelector(".nav-search");
+const navShop = document.querySelector(".nav-shop");
+const navLook = document.querySelector(".lookbook");
 
 let smallDevice = window.matchMedia("(min-width: 374px)");
 let mediumDevice = window.matchMedia("(max-width: 677px)");
 
+// Change Nav text for smaller Screens
 function handleDeviceChange(event) {
-  navBarChange(event);
-}
-
-function navBarChange(event) {
   if (event.matches) {
-    navLeft.innerHTML = `
-            <div class="nav-left">
-            <span>
-              <a href="#">Menu</a>
-            </span>
-          </div>`;
-
-    navRight.innerHTML = `
-          <div class="nav-right">
-          <span>
-            <a href="#" class="cart-nav-info">Cart</a>
-            <span class="cart-nav">(0)</span>
-          </span>
-        </div>
-          `;
-  } else {
-    navLeft.innerHTML = `
-        <div class="nav-left">
-            <span>
-              <a href="/pages/shop.html">Shop</a>
-              <a href="#">Lookbook</a>
-            </span>
-          </div>`;
-
-    navRight.innerHTML = `
-        <div class="nav-right">
-          <span>
-            <a href="#">Search</a>
-            <a href="#" class="cart-nav-info">Cart</a>
-            <span class="cart-nav">(0)</span>
-          </span>
-        </div>`;
+    navMenu.classList.remove("hidden");
+    navShop.classList.add("hidden");
+    navLook.classList.add("hidden");
+    navSearch.classList.add("hidden");
   }
 }
 
 mediumDevice.addEventListener("change", handleDeviceChange);
+mediumDevice.addEventListener('DOMContentLoaded', handleDeviceChange);
