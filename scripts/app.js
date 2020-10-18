@@ -1,5 +1,9 @@
 // Variables
-const menu = document.querySelector(".nav-menu");
+const menuOverlay = document.querySelector(".menu-overlay");
+const menuDOM = document.querySelector(".menu");
+const menuInfo = document.querySelector(".nav-menu");
+
+const closeMenu = document.querySelector(".close-menu");
 
 const cartNavBtn = document.querySelector(".cart-nav");
 const cartNavName = document.querySelector(".cart-nav-info");
@@ -54,6 +58,9 @@ class UI {
     cartNavBtn.addEventListener("click", this.showCart);
     cartNavName.addEventListener("click", this.showCart);
     closeCartBtn.addEventListener("click", this.hideCart);
+
+    menuInfo.addEventListener("click", this.showMenu);
+    closeMenu.addEventListener("click", this.hideMenu);
   }
 
   displayProducts(products) {
@@ -155,6 +162,16 @@ class UI {
   hideCart() {
     cartOverlay.classList.remove("transparentBcg");
     cartDOM.classList.remove("showCart");
+  }
+
+  showMenu() {
+    menuOverlay.classList.add("blackBcg");
+    menuDOM.classList.add("showMenu");
+  }
+
+  hideMenu() {
+    menuOverlay.classList.remove("blackBcg");
+    menuDOM.classList.remove("showMenu");
   }
 
   populateCart(cart) {

@@ -25,9 +25,11 @@ html {
 }
 
 .shop-title {
-  font-size: 1.5rem;
+  position: absolute;
+  top: 11%;
+  left: 5.5%;
+  font-size: 1.3rem;
   letter-spacing: 0.3rem;
-  margin-bottom: 2rem;
 }
 /*------------------------ End of Shop page ------------------------*/
 
@@ -123,6 +125,7 @@ html {
 /* Portrait and Landscape */
 @media screen and (min-width: 375px) and (max-width: 899px) {
   .shop-content {
-    top: 4%;
+    top: 5%;
   }
+
 }
