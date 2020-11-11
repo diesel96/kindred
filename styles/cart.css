@@ -20,8 +20,10 @@
   background: #fff;
   overflow-y: scroll;
   overflow-x: hidden;
-  transition: 0.7s;
+  transition: 0.4s;
   transform: translateX(100%);
+  cursor: pointer;
+
 }
 
 .showCart {
@@ -152,21 +154,21 @@
 /* Media Query */
 
 /* Portrait and Landscape */
-@media screen and (min-width: 375px) and (max-width: 899px) {
-  .cart{
+@media screen and (min-width: 375px) and (max-width: 430px) {
+  .cart {
+    width: 100vw;
+    padding: 0;
+  }
 
-    background-color: purple;
-    /*
-      The reason why it's not working is because of the app.js 
+  .cart-item{
+    flex-direction: column;
+  }
 
-      - something about creating a div? 
-      - maybe it's because of the image? 
-      - content?
-      
-      Either way, you got this. 
+  .cart-title{
+    padding: 1.5rem 0 0 1.5rem; 
+  }
 
-      Take a break, you deserver it.
-
-    */
+  .close-cart{
+    margin: 1.5rem 0 0 1.5rem;
   }
 }
